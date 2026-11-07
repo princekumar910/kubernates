@@ -1,0 +1,43 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: ingress-service-1
+spec:
+  selector:
+    app: ingress
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: NodePort
+  nodePort: 30080
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: ingress-service-2
+spec:
+  selector:
+    app: ingress
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: NodePort
+  nodePort: 30081
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: ingress-service-3
+spec:
+  selector:
+    app: ingress
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: NodePort
+  nodePort: 30082

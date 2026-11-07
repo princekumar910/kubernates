@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ingress-deployment
+  labels:
+    app: ingress
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ingress
+  template:
+    metadata:
+      labels:
+        app: ingress
+    spec:
+      containers:
+      - name: nginx-1
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - mountPath: /data/app1
+          name: ingress-pv-app1
+      - name: nginx-2
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - mountPath: /data/app2
+          name: ingress-pv-app2
+      - name: nginx-3
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - mountPath: /data/app3
+          name: ingress-pv-app3
+
+      volumes:
+      - name: ingress-pv-app1
+        persistentVolumeClaim:
+          claimName: ingress-pvc-app1
+      - name: ingress-pv-app2
+        persistentVolumeClaim:
+          claimName: ingress-pvc-app2
+      - name: ingress-pv-app3
+        persistentVolumeClaim:
+          claimName: ingress-pvc-app3

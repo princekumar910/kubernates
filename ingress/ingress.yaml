@@ -1,0 +1,29 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: example-ingress
+spec:
+  rules:
+    http:
+      paths:
+      - path: /app1
+        pathType: Prefix
+        backend:
+          service:
+            name: ingress-service-1
+            port:
+              number: 30080
+      - path: /app2
+        pathType: Prefix
+        backend:
+          service:
+            name: ingress-service-2
+            port:
+              number: 30081
+      - path: /app3
+        pathType: Prefix
+        backend:
+          service:
+            name: ingress-service-3
+            port:
+              number: 30082
