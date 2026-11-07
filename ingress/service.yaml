@@ -4,13 +4,13 @@ metadata:
   name: ingress-service-1
 spec:
   selector:
-    app: ingress
+    app: app1
   ports:
     - protocol: TCP
       port: 80
       targetPort: 80
+      nodePort: 30080
   type: NodePort
-  nodePort: 30080
 
 ---
 kind: Service
@@ -19,13 +19,13 @@ metadata:
   name: ingress-service-2
 spec:
   selector:
-    app: ingress
+    app: app2
   ports:
     - protocol: TCP
       port: 80
       targetPort: 80
+      nodePort: 30081
   type: NodePort
-  nodePort: 30081
 
 ---
 kind: Service
@@ -34,10 +34,10 @@ metadata:
   name: ingress-service-3
 spec:
   selector:
-    app: ingress
+    app: app3
   ports:
     - protocol: TCP
       port: 80
       targetPort: 80
+      nodePort: 30082
   type: NodePort
-  nodePort: 30082
