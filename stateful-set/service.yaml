@@ -4,10 +4,10 @@ metadata:
   name: mongo-service
   namespace: stateful
 spec:
+  clusterIP: None
   selector:
-    app: mongo
+    app: stateful-set
   ports:
     - protocol: TCP
       port: 27017
       targetPort: 27017
-  type: ClusterIP

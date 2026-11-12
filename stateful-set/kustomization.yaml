@@ -3,6 +3,4 @@ kind: Kustomization
 resources:
 - namespace.yaml
 - deployment.yaml
-- persistentVolume.yaml
-- persistentVolumeClaim.yaml
 - service.yaml
